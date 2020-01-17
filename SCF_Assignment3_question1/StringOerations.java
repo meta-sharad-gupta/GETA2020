@@ -5,15 +5,14 @@ public class StringOerations {
 
 	public static void main(String[] args) {
 
-		/*
-		 * Class Operation's instance is created
-		 */
+		// Class Operation's instance is created
+		 
 		Operations operation = new Operations();
 		Scanner input = new Scanner(System.in);
 
 		while(true){
 			try{
-				System.out.println("Press:\n1.Check the equality of two strings.\n2.Reverse of string\n3.Replace lowercase characters with uppercase and uppercase with lowercase\n4.Largest word of a string\n");
+				System.out.println("Press:\n1.Check the equality of two strings.\n2.Reverse of string\n3.Replace lowercase characters with uppercase and uppercase with lowercase\n4.Largest word of a string\n5.Exit\n");
 
 				int choice = input.nextInt();
 
@@ -21,7 +20,13 @@ public class StringOerations {
 
 
 				case 1:
-					System.out.print(   operation.compare(mainString())  +  "\n\n");
+				
+					if(operation.compare(mainString())==0)
+					{
+						System.out.println("Strings are not equal.\n\n");
+					}else{
+						System.out.println("Strings are equal.\n\n");
+					}
 					break;
 
 				case 2:
@@ -38,6 +43,10 @@ public class StringOerations {
 					System.out.print("Longest word is:"  +  operation.largestWord(mainString())  +  "\n\n");
 					break;
 
+				case 5:
+					System.exit(0);
+					break;
+					
 				default:
 					System.out.print("Your input dont match to the given choice\n\n");
 
