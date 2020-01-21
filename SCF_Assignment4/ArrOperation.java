@@ -5,18 +5,18 @@ public class ArrOperation {
 	 * returning the number of clumps 
 	 */
 	public int clump(int array[]){
-		if(array.length==0)
+		if(array.length == 0)
 			throw new AssertionError("Array is Empty");
-		int count=0,clumps=0;
-		for(int index=0;index<array.length-1;index++){
+		int count = 0 , clumps = 0;
+		for(int index = 0 ; index < array.length-1 ; index++){
 			if(array[index]==array[index+1]){
 				count++;
 			}
 			else{
-				count=0;
+				count = 0;
 			}
 
-			if(count==1){
+			if(count == 1){
 				clumps++;
 			}
 		}
@@ -25,12 +25,12 @@ public class ArrOperation {
 	/*
 	 * finding the the index to split the array equally
 	 * @param array : for getting values of process
-	 * returning the index where the arry split equally
+	 * returning the index where the array split equally
 	 */
 	public int split(int array[]){
-		if(array.length==0)
+		if(array.length == 0)
 			throw new AssertionError("Array is Empty");
-		int firstSum = 0 , secondSum = 0 , firstIndex  , lastIndex , splitIndex=0;
+		int firstSum = 0 , secondSum = 0 , firstIndex  , lastIndex , splitIndex = 0;
 		for (firstIndex = -1 , lastIndex = array.length  ; firstIndex <= lastIndex;){
 
 			if(firstSum == secondSum){
@@ -42,7 +42,7 @@ public class ArrOperation {
 					splitIndex=-1;
 				}
 			}
-			else if(firstSum>secondSum){
+			else if(firstSum > secondSum){
 				lastIndex--;
 				secondSum += array[lastIndex];
 
@@ -65,24 +65,28 @@ public class ArrOperation {
 	 * @param array : for getting values of process
 	 * returning the array after fixing the problem
 	 */
-	public int[] fixXY(int[] array,int x,int y){
-		if(array.length==0)
+	public int[] fixXY(int[] array , int x , int y){
+		if(array.length == 0)
 			throw new AssertionError("Array is Empty");
-		if(array[array.length-1]==x)
+
+		if(array[array.length-1] == x)
 			throw new AssertionError("X can't be the last element of array");
-		int countX=0,countY=0;
+
+		int countX = 0 , countY = 0;
 		for(int index = 0;index < array.length ; index++){
 			if(array[index] == x)
 				countX++;
 			if(array[index] == y)
 				countY++;
 		}
-		if(countX!=countY)
+		if(countX != countY)
 			throw new AssertionError("Number of X and Y are not Equal");
+
 		for(int index = 0;index < array.length-1 ; index++){
 			if(  array[index] == x  &&  array[index+1] == x  )
 				throw new AssertionError("Two consecutive x are available");
 		}
+
 		for(int index = 0;index < array.length-1 ; index++){
 
 			if(array[index] == x && array[index+1] != y){
@@ -92,14 +96,14 @@ public class ArrOperation {
 					if(array[index2] == y){
 
 						if(index2 == 0){
-					
+
 							array[index2] = array[index+1];
 							array[index+1] = y ;
 						}
 						else if(array[index2-1]==x)
 							continue;
 						else{
-							
+
 							array[index2] = array[index+1];
 							array[index+1] = y;
 						}
@@ -124,7 +128,7 @@ public class ArrOperation {
 		for(int index = 0 ; index < array.length ; index++){
 			for(int index2 = array.length-1 ; index2 >= 0 ; index2--){
 				if(array[index] == array[index2]){
-					int k = index ;//variale for inner loop
+					int k = index ;//variable for inner loop
 					int l = index2 ;
 					int varCount = 0 ;
 					while((l-k) >= 0 && array[k] == array[l]){

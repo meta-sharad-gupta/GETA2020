@@ -59,26 +59,26 @@ public class ArrayOperationTestCase {
 		assertEquals(2,object.MirrorSection(new int[]{7,1,4,9,7,4,1}));
 	}
 	@Test
-	public void testMaxMirror3() throws Exception{	  
+	public void testMaxMirror3(){	  
 		assertEquals(3,object.MirrorSection(new int[]{1, 2, 1,4}));
 	}
 	@Test
-	public void fixXY1() throws Exception {
+	public void fixXY1(){
 		int result[] = object.fixXY(new int[]{5,4,9,4,9,5,9},4,5);
 		int[] expected={ 9, 4, 5, 4, 5, 9, 9 };
 		assertArrayEquals(expected,result);
 	}
 	@Test
-	public void fixXY2() throws Exception {
+	public void fixXY2(){
 		int result[] = object.fixXY(new int[]{1,4,1,5},4,5);
 		int[] expected={1,4,5,1};
 		assertArrayEquals(expected,result);
 	}
 	@Test
-	public void testfixXY3() throws Exception{	
+	public void fixXY3(){	
 		int result[] = object.fixXY(new int[]{1,4,1,5,5,4,1},4,5);
 		int []expectedArr = new int[]{1,4,5,1,1,4,5};
 		assertArrayEquals( expectedArr, result );
 	}
-
+	
 }
