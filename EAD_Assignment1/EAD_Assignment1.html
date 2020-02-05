@@ -23,6 +23,10 @@
             resize: none;
         }
         
+        #passBought {
+            text-align: center;
+        }
+        
         form {
             text-align: center;
         }
@@ -225,7 +229,8 @@
                 document.getElementById("conversionTypeError").innerText = "Please enter a currency."
                 return false;
             }
-
+            document.getElementById("conversionForm").style.display = "none"
+            document.getElementById("passBought").innerText = "Thanks for buying the pass."
         }
     </script>
     <title>Metacube Parking System</title>
@@ -317,8 +322,11 @@
         <span>Amount > </span>
         <input id="payableAmount" type="text" disabled>
 
-        <br/><input type="submit" value="Pay" onclick="return pay()">
+        <br/><input type="button" value="Pay" onclick="pay()">
     </form>
+
+    <h1 id="passBought"></h1>
+
 
 </body>
 
