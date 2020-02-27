@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Parking System</title>
+
+</head>
+
+<body>
+    <!-- Division for Links -->
+    <div>
+        <!-- Here All the four link are provided for different forms -->
+        <h3>
+            <a href="#employeeForm">Add Employee</a>&nbsp;&nbsp;
+            <a href="#vehicleForm">Add Vehicle  </a>&nbsp;&nbsp;
+            <a href="#feedback">Give Feedback  </a>&nbsp;&nbsp;
+            <a href="#passOfVehicle">Passes  </a>&nbsp;&nbsp;
+        </h3>
+    </div>
+
+    <!-- Division for Image related solution -->
+    <div>
+        <!-- Image refrence is provided here -->
+        <img src="Parking.jpg" style="height: 600px;" alt="Can't Open Image">
+    </div>
+
+    <!-- Division for Employee Registeration form -->
+    <div id="employeeForm" class="EmployeeForm">
+        <!-- Form for Employee Registeration Form -->
+        <form action=UIAssignment1.html>
+            <fieldset>
+                <legend>Employee Registeration Form</legend>
+
+                <input id="empName" type="text" placeholder="Name" required></br>
+                <label>Gender :</label>
+                <label><input id="optionMale" style="width:20px;height:20px" type="radio" name="gender"  required>Male</label>
+                <label><input id="optionFemale" style="width:20px;height:20px" type="radio" name="gender" required>Female</label></br>
+                <input id="empEmailId" type="email" placeholder="Email Id" required></br>
+                <input id="empPassword" type="password" placeholder="Password" required><br/>
+                <input id="empConfirmPassword" type="password" placeholder="Confirm Password" required></br>
+                <input id="empContact" type="text" placeholder="Contact Number" required></br>
+                <input type="submit" value="Register">
+
+            </fieldset>
+
+        </form>
+    </div>
+    <!-- Division for Vehicle Registeration form -->
+    <div id="vehicleForm" class="VehicleForm">
+        <!-- Form for vehicle Registeration Form -->
+        <fieldset>
+            <legend>Vehicle Information</legend>
+            <form id="vehicleFormid" action=UIAssignment1.html>
+
+                <input id="vehicleCompany" type="text" placeholder="Vehicle Make(Company)" required></br>
+                <input id="vehicleModel" type="text" placeholder="Vehicle Model" required></br>
+                <select id="vehicleType" required>
+                <option hidden value="">Vehicle</option>
+                <option value="Cycle">Cycle</option>
+                <option value="motorCycle">Motor Cycle</option>
+                <option value="car">Car</option>
+            </select><br>
+                <input id="vehicleNumber" type="text" placeholder="Vehicle Number" required></br>
+                <input type="text" id="empID" placeholder="Employee ID" required></br>
+                <textarea placeholder="Identification (Textarea - Color, mark,visible accessory etc.)" rows="3" cols="30" required></textarea></br>
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+    </div>
+
+    <!-- Division for Feedback form -->
+    <div id="feedback" class="Feedback">
+        <fieldset>
+            <legend>Feedback Form</legend>
+            <form action="UIAssignment1.html">
+                <input type="text" placeholder="Name" required></br>
+                <input type="email" placeholder="Email" required></br>
+                <input type="text" placeholder="Subject" required></br>
+                <textarea placeholder="Message" rows="3" cols="30" required></textarea></br>
+                <input type="submit" value="Send">
+            </form>
+        </fieldset>
+    </div>
+
+    <!-- Division for Passes form -->
+    <div id="passOfVehicle" class="PassOfVehicle">
+        <fieldset>
+            <legend>Pass</legend>
+            <form action="UIAssignment1.html">
+                <!-- Table for vehicles and duration of the Passes with their passes -->
+                <table>
+                    <tr>
+                        <th>Vehicle</th>
+                        <th>Daily</th>
+                        <th>Monthly</th>
+                        <th>Yearly</th>
+                    </tr>
+                    <tr>
+                        <td>Cycle</td>
+                        <td><input type="radio" name="pass" value="5">5</td>
+                        <td><input type="radio" name="pass" value="100">100</td>
+                        <td><input type="radio" name="pass" value="500">500</td>
+                    </tr>
+                    <tr>
+                        <td>Motor Cycle</td>
+                        <td><input type="radio" name="pass" value="100">10</td>
+                        <td><input type="radio" name="pass" value="200">200</td>
+                        <td><input type="radio" name="pass" value="1000">1000</td>
+                    </tr>
+                    <tr>
+                        <td>Car</td>
+                        <td><input type="radio" name="pass" value="20">20</td>
+                        <td><input type="radio" name="pass" value="500">500</td>
+                        <td><input type="radio" name="pass" value="3500">3500</td>
+                    </tr>
+
+                </table>
+                <input type="submit" value="Buy">
+
+
+            </form>
+        </fieldset>
+
+    </div>
+
+</html>
