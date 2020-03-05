@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+   <title>
+        Add Student Details
+    </title>
+    <style>
+        form {
+            margin: 30%;
+            margin-top: 5%;
+            border: 5px solid darkslategrey;
+            text-align: center;
+        }
+        
+        input {
+            width: 300px;
+            height: 20px;
+            margin: 15px;
+        }
+        
+        input[type="submit"] {
+            width: 200px;
+            height: 50px;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+	<form id="addStudentForm" name="addStudentForm" action="AddStudent" method="post">
+		<h2>Add Student Details</h2>
+		<input id="firstname" name="firstname" type="text" placeholder="First Name">
+		<input id="lastname" name="lastname" type="text" placeholder="Last Name"> 
+		<input id="fathername" name="fathername" type="text" placeholder="Father's Name"> 
+		<input id="email" name="email" type="email"	placeholder="E-mail"> <br/>
+		<select id="class" name="class">
+        <option >9</option>
+        <option >10</option>
+        <option >11</option>
+        <option >12</option>
+        </select><br/>
+		<input id="age" name="age" type="number" placeholder="Age">
+		<input type="submit" value="Submit">
+	</form>
+</body>
+
+</html>
