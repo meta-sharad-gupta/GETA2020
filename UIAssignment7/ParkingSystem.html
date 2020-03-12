@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="ParkingSystem.js">
+    </script>
+    <title>Metacube Parking System</title>
+</head>
+
+<body>
+    <h1>Metacube Parking System</h1>
+    <div id="formField">
+
+        <label id="idLabel">Please Enter Your Name! </label>
+        <input type="text" id="input" />
+        <a id="a" href="#" onclick="next();"><input type="button" value="submit"></a>
+    </div>
+
+    <div id="formGender" style="display:none">
+
+        <label id="idLabelGender"></label>
+        <br>
+        <input type="radio" id="maleGender" name="gender" value="male" />Male<input type="radio" id="femaleGender" name="gender" value="Female" />Female
+        <a id="b" href="#" onclick="next9();"><input type="button" value="submit"></a>
+    </div>
+
+    <div id="selectVehType" style="display:none">
+
+        <label id="idLabelVehType"></label>
+        <br>
+        <select name="vehicle" id="vehicleType">
+			<option value="">--select value--</option>
+			<option value="Cycle">Cycle</option>
+			<option value="MotorCycle">Motor Cycle</option>
+			<option value="FourWheeler">Four Wheeler</option>
+		</select>
+        <a id="c" href="#" onclick="next6();"><input type="button" value="submit"></a>
+    </div>
+
+    <div id="selectCyclePassType" style="display:none">
+
+        <label id="idLabelCycleType"></label>
+        <br>
+        <select name="pass" id="Cycle">
+			<option value="">--select value--</option>
+			<option value="5">5 Daily</option>
+			<option value="100">100 Monthly</option>
+			<option value="500">500 Yearly</option>
+		</select>
+        <a id="d" href="#" onclick="next8();"><input type="button" value="submit"></a>
+    </div>
+    <div id="selectTwoPassType" style="display:none">
+
+        <label id="idLabelTwoType"></label>
+        <br>
+        <select name="pass" id="TwoWheeler">
+			<option value="">--select value--</option>
+			<option value="10">10 Daily</option>
+			<option value="200">200 Monthly</option>
+			<option value="1000">1000 Yearly</option>
+		</select>
+        <a id="d" href="#" onclick="next8();"><input type="button" value="submit"></a>
+    </div>
+    <div id="selectFourPassType" style="display:none">
+
+        <label id="idLabelFourType"></label>
+        <br>
+        <select name="pass" id="FourWheeler">
+			<option value="">--select value--</option>
+			<option value="20">20 Daily</option>
+			<option value="500">500 Monthly</option>
+			<option value="3500">3500 Yearly</option>
+		</select>
+        <a id="d" href="#" onclick="next8();"><input type="button" value="submit"></a>
+    </div>
+
+</body>
+
+</html>
