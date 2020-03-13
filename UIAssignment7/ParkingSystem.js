@@ -1,97 +1,116 @@
-let vehicleType = "";
-let password = "";
-let number = "";
-let Upperchar = "";
-let Lowerchar = "";
+// variables used for saving details of employee and vehicles
 let name = "";
 let email = "";
-let regexFirstName = /[a-zA-Z]/;
-let regexFullName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+let password = "";
+let confirmPassword = "";
+let contactNumber = "";
+let employeeID = "";
+let vehicleNumber = "";
+let vehicleName = "";
+let pass = "";
+let vehicleIdentification = "";
+
+// regex needed fot he programme
+let regexName = /[a-zA-Z]{2,}/;
+let regexName1 = /^[a-zA-Z]+ [a-zA-Z]+$/;
 let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
+let regexContactNumber = /^\d{10}$/;
+let regexVehicleName = /[a-zA-Z]/;
 let regexForVehicleNumber = /^[A-Za-z]{2}\s[0-9]{2}\s[A-Za-z]{2}\s[0-9]{4}$/;
-let regexContactNumber = /[0-9]{10}/;
-next = () => {
+
+// This method will check the validation of name and will show next input
+nameCheck = () => {
+
     name = document.getElementById("input").value;
     if (name != "") {
-        if (regexFirstName.test(name) || regexFullName.test(name)) {
-            document.getElementById("idLabelGender").innerHTML = "Hi " + name + "!" + " Enter Your Gender ";
+        if (regexName.test(name) || regexName1.test(name)) {
+            document.getElementById("genderIdLabel").innerHTML = "Hi " + name + " ! Please Enter your Gender : ";
             document.getElementById("formGender").style.display = "block";
-            document.getElementById("formField").style.display = "none";
+            document.getElementById("formForAllInput").style.display = "none";
         } else {
-            alert("Name should contain only letters.");
+            alert("Name should contain only letter and minimum 2 letters.");
         }
     } else {
-        alert("Please enter your Name");
+        alert("Name can't be empty.");
     }
 }
 
-next9 = () => {
+// This method will check the validation of gender and will show next input
+genderCheck = () => {
     if (document.getElementById("maleGender").checked == true || document.getElementById("femaleGender").checked == true) {
         document.getElementById("formGender").style.display = "none";
-        document.getElementById("formField").style.display = "block";
+        document.getElementById("formForAllInput").style.display = "block";
         document.getElementById("idLabel").innerHTML = "Hi " + name + "!" + " Enter Your Email ";
         document.getElementById("input").type = "email";
         document.getElementById("input").value = "";
-        document.getElementById("a").onclick = next1;
+        document.getElementById("refrenceLink").onclick = emailCheck;
     } else {
-        alert("Your gender is empty!!!");
+        alert("please select your gender");
     }
 }
 
-next1 = () => {
-    var email = document.getElementById("input").value;
+// This method will check the validation of Email and will show next input
+emailCheck = () => {
+    email = document.getElementById("input").value;
     if (email != "") {
         if (regexEmail.test(email)) {
-            document.getElementById("idLabel").innerHTML = "Hi " + name + "! " + "Please Enter Your Password Here";
-            document.getElementById("input").type = "password";
+            document.getElementById("idLabel").innerHTML = "Hi " + name + " ! Please Enter your password : ";
+            document.getElementById("input").type = 'password';
             document.getElementById("input").value = "";
-            document.getElementById("input").oninput = checkPassword;
-            document.getElementById("a").onclick = next2;
+            document.getElementById("refrenceLink").onclick = passwordCheck;
+            document.getElementById("input").onkeyup = boundaryColor;
         } else {
-            alert("Please Enter Email in Proper Format! Format : abc@abc.abc");
+            alert("Enter email in proper format. Format : abc@abc.com");
         }
     } else {
-        alert("Your Email is Empty!!");
+        alert("Email can't be empty.");
     }
 }
 
-next2 = () => {
+// This method will check the validation of Password and will show next input
+passwordCheck = () => {
     password = document.getElementById("input").value;
-    if (password != "" && document.getElementById("input").style.outlineColor == "green") {
-
-        document.getElementById("input").oninput = false;
-        document.getElementById("idLabel").innerHTML = "Hi " + name + "! " + "Please Confirm Your Password Here!";
-        document.getElementById("input").type = "password";
-        document.getElementById("input").value = "";
-        document.getElementById("a").onclick = next3;
-    } else {
-        alert("password should contain one uppercase letter,lowercase letter , number and minimum length should be 8");
-    }
-}
-
-next3 = () => {
-    var repass = document.getElementById("input").value;
-    if (repass != "") {
-        if (password != repass) {
-            alert("Looks Like Password does not Match!!!");
-        } else {
-            document.getElementById("idLabel").innerHTML = "Hi " + name + "! " + "Please Enter Your Contact Number!";
-            document.getElementById("input").type = "tel";
+    if (password != "") {
+        if (regexPassword.test(password)) {
+            document.getElementById("idLabel").innerHTML = "Hi " + name + " ! Please confirm your password : ";
+            document.getElementById("input").type = 'password';
+            document.getElementById("input").style.borderColor = "";
             document.getElementById("input").value = "";
-            document.getElementById("a").onclick = next4;
+            document.getElementById("refrenceLink").onclick = confirmPasswordCheck;
+            document.getElementById("input").onkeyup = confirmBoundaryColor;
+        } else {
+            alert("password should contain one uppercase letter,lowercase letter , number and minimum length should be 8");
         }
     } else {
-        alert("Oops!! Your Password is Empty!!");
+        alert("Password can't be empty.");
     }
 }
 
-next4 = () => {
-    let contactNumber = document.getElementById("input").value;
+// This method will check the validation of coinfirm password and will show next input
+confirmPasswordCheck = () => {
+    confirmPassword = document.getElementById("input").value;
+    if (confirmPassword == password) {
+        document.getElementById("idLabel").innerHTML = "Hi " + name + " ! Please enter your Contact Number : ";
+        document.getElementById("input").type = "text";
+        document.getElementById("input").style.borderColor = "";
+        document.getElementById("input").value = "";
+        document.getElementById("refrenceLink").onclick = contactnumberCheck;
+        document.getElementById("input").onkeyup = "";
+    } else {
+        alert("Your password don't match!!!");
+    }
+}
+
+// This method will check the validation of Contact Number and will show next input
+contactnumberCheck = () => {
+    contactNumber = document.getElementById("input").value;
     if (document.getElementById("input").value != "") {
         if (regexContactNumber.test(contactNumber)) {
-            document.getElementById("idLabel").innerHTML = "Hi " + name + "! " + "Please Enter your vehicle number!";
+            document.getElementById("idLabel").innerHTML = "Hi " + name + "! " + "Please Enter your Employee ID : ";
             document.getElementById("input").value = "";
-            document.getElementById("a").onclick = next5;
+            document.getElementById("refrenceLink").onclick = employeeIDCheck;
+            document.getElementById("input").style.borderColor = "";
         } else {
             alert("Contact number should only contain 10 numbers.");
         }
@@ -100,14 +119,47 @@ next4 = () => {
     }
 }
 
-next5 = () => {
+// This method will check the validation of Employee ID and will show next input
+employeeIDCheck = () => {
+    employeeID = document.getElementById("input").value;
+    if (employeeID != "") {
+        document.getElementById("idLabel").innerHTML = "Hi " + name + "! " + "Please Enter your vehicle name : ";
+        document.getElementById("input").value = "";
+        document.getElementById("refrenceLink").onclick = vehicleNameCheck;
+        document.getElementById("input").style.borderColor = "";
+    } else {
+        alert("Employee ID can't be empty!!!");
+    }
+}
 
-    var vehNumber = document.getElementById("input").value;
-    if (vehNumber != "") {
-        if (regexForVehicleNumber.test(vehNumber)) {
-            document.getElementById("idLabelVehType").innerHTML = "Hi " + name + "! " + "What's Your Vehicle Type?";
-            document.getElementById("formField").style.display = "none";
-            document.getElementById("selectVehType").style.display = "block"
+// This method will check the validation of Vehicle name and will show next input
+vehicleNameCheck = () => {
+    vehicleName = document.getElementById("input").value;
+    if (document.getElementById("input").value != "") {
+        if (regexVehicleName.test(vehicleName)) {
+            document.getElementById("input").style.borderColor = "";
+            document.getElementById("idLabel").innerHTML = "Hi " + name + "! " + "Please Enter your vehicle number!";
+            document.getElementById("input").value = "";
+            document.getElementById("refrenceLink").onclick = vehicleNumberCheck;
+        } else {
+            alert("Only letters are allowed!!!");
+        }
+    } else {
+        alert("Vehicle number can't be empty!!");
+    }
+}
+
+// This method will check the validation of Vehicle Number and will show next input
+vehicleNumberCheck = () => {
+    vehicleNumber = document.getElementById("input").value;
+    if (vehicleNumber != "") {
+        if (regexForVehicleNumber.test(vehicleNumber)) {
+            document.getElementById("input").style.borderColor = "";
+            document.getElementById("selectVehicleType").style.display = "block"
+            document.getElementById("vehicleTypeLabel").innerHTML = "Hi " + name + "! " + "What's Your Vehicle Type?";
+            document.getElementById("formForAllInput").style.display = "none";
+            document.getElementById("refrenceLink").onclick = vehicleTypeCheck;
+
         } else {
             alert("Please Enter Vehicle Number in form like RJ XX CA XXXX!");
         }
@@ -116,72 +168,86 @@ next5 = () => {
     }
 }
 
-next6 = () => {
+// This method will check the validation of Vehicle Type and will show next input
+vehicleTypeCheck = () => {
     vehicleType = document.getElementById("vehicleType").value;
     if (vehicleType != "") {
-        document.getElementById("formField").style.display = "block";
-        document.getElementById("selectVehType").style.display = "none";
+        document.getElementById("box-span").innerHTML = '';
+        document.getElementById("box-span").innerHTML = '<textarea></textarea>';
+        document.getElementById("formForAllInput").style.display = "block";
+        document.getElementById("selectVehicleType").style.display = "none"
+        document.getElementById("input").style.display = 'none';
+        document.getElementById("idLabel").innerHTML = "Hi " + name + " ! Please Enter your vehicle Identification : ";
 
-        document.getElementById("idLabel").innerHTML = "Hi " + name + "! " + "Please Enter Your Employee Id!";
-        document.getElementById("input").type = "id";
-        document.getElementById("input").value = "";
-        document.getElementById("a").onclick = next7;
+        document.getElementById("refrenceLink").onclick = showPass;
     } else {
-        alert("Mention your Vehicle Type Please!!");
+        alert("Please select your vehicle type!!");
     }
 }
 
-next7 = () => {
-    if (document.getElementById("input").value != "") {
-        if ("Cycle" == vehicleType) {
-            document.getElementById("formField").style.display = "none";
-            document.getElementById("selectCyclePassType").style.display = "block";
-            document.getElementById("idLabelCycleType").innerHTML = "Choose Your Pass!";
-        } else if ("MotorCycle" == vehicleType) {
-            document.getElementById("formField").style.display = "none";
-            document.getElementById("selectTwoPassType").style.display = "block";
-            document.getElementById("idLabelTwoType").innerHTML = "Choose Your Pass!";
-        } else {
-            document.getElementById("formField").style.display = "none";
-            document.getElementById("selectFourPassType").style.display = "block";
-            document.getElementById("idLabelFourType").innerHTML = "Choose Your Pass!";
-        }
-    } else {
-        alert("Please Enter Employee Id!!");
-    }
-}
-
-next8 = () => {
-    var pass = 0;
+// This method will show the pass of vehicle
+showPass = () => {
+    document.getElementById("idLabel").style.display = "none";
+    document.getElementById("box-span").style.display = 'none';
+    document.getElementById("formForAllInput").style.display = "none";
+    document.getElementById("selectVehicleType").style.display = "none";
+    document.getElementById("input").style.display = 'none';
+    document.getElementById("refrenceLink").style.display = 'none';
     if ("Cycle" == vehicleType) {
-        pass = document.getElementById("passType").value;
+
+        document.getElementById("selectCyclePassType").style.display = "block";
+        document.getElementById("idLabelCycleType").innerHTML = "Choose Your Pass!";
+    } else if ("MotorCycle" == vehicleType) {
+        document.getElementById("selectTwoPassType").style.display = "block";
+        document.getElementById("idLabelTwoType").innerHTML = "Choose Your Pass!";
+    } else {
+        document.getElementById("selectFourPassType").style.display = "block";
+        document.getElementById("idLabelFourType").innerHTML = "Choose Your Pass!";
+    }
+}
+
+// This method will show the pass price
+passCheck = () => {
+    document.getElementById("formForAllInput").style.display = "none";
+    document.getElementById("selectVehicleType").style.display = "none";
+    if ("Cycle" == vehicleType) {
+        pass = document.getElementById("Cycle").value;
     } else if ("MotorCycle" == vehicleType) {
         pass = document.getElementById("TwoWheeler").value;
     } else if ("FourWheeler" == vehicleType) {
         pass = document.getElementById("FourWheeler").value;
     }
     if (pass != "") {
-        document.getElementById("formField").style.display = "block";
+        document.getElementById("formForAllInput").style.display = "none";
         document.getElementById("selectTwoPassType").style.display = "none";
         document.getElementById("selectFourPassType").style.display = "none";
         document.getElementById("selectCyclePassType").style.display = "none";
-        document.getElementById("formField").innerHTML = " Your pass price is Rs." + pass + "  !!!!!";
+        document.getElementById("finalMessage").innerHTML = " Your pass price is Rs." + pass + "  !!!!!";
 
     } else {
         alert("Please Select Pass");
     }
 }
 
-checkPassword = () => {
+// This method will change the color of boundary according to the password length
+boundaryColor = () => {
+    password = document.getElementById("input").value;
+    if (regexPassword.test(password)) {
+        document.getElementById("input").style.borderColor = "green";
+    } else if (password.length < 2) {
+        document.getElementById("input").style.borderColor = "red";
+    } else if (password.length > 2) {
+        document.getElementById("input").style.borderColor = "yellow";
+    }
+}
 
-    let regexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{7,})/;
-    let pass = document.getElementById("input").value;
+// This method will change the color of boundary according to the confirmation if the password and confirm password input match
+confirmBoundaryColor = () => {
+    confirmPassword = document.getElementById("input").value;
+    if (confirmPassword != password) {
+        document.getElementById("input").style.borderColor = "red";
 
-    if (pass.length < 4) {
-        document.getElementById("input").style.outlineColor = "red";
-    } else if (pass.length > 4 && pass.length < 8) {
-        document.getElementById("input").style.outlineColor = "orange";
-    } else if (regexp.test(pass)) {
-        document.getElementById("input").style.outlineColor = "green";
+    } else {
+        document.getElementById("input").style.borderColor = "green";
     }
 }

@@ -2,44 +2,48 @@
 <html>
 
 <head>
-    <script type="text/javascript" src="ParkingSystem.js">
-    </script>
-    <title>Metacube Parking System</title>
+
+    <script type="text/javascript" src="ParkingSystem.js"></script>
+    <link rel="icon" href="https://image.shutterstock.com/image-vector/car-parking-flat-icon-sign-260nw-282914162.jpg" sizes="19x19">
 </head>
 
 <body>
-    <h1>Metacube Parking System</h1>
-    <div id="formField">
+    <!-- heading of page  -->
+    <h1>METACUBE PARKING SYSTEM</h1>
 
-        <label id="idLabel">Please Enter Your Name! </label>
-        <input type="text" id="input" />
-        <a id="a" href="#" onclick="next();"><input type="button" value="submit"></a>
+    <!-- division for all input details -->
+    <div id="formForAllInput" class="employee">
+        <h3> <span id="idLabel">Please Enter your name : </span></h3>
+        <span id="box-span"></span><input id="input" type="text" placeholder=""></span>
+
+        <a id="refrenceLink" onclick="nameCheck()"><input type="submit" value="submit"></a>
+
     </div>
 
-    <div id="formGender" style="display:none">
+    <!-- dividion for gender input  -->
+    <div id="formGender" style="display: none;">
+        <h3> <span id="genderIdLabel"> </span></h3>
+        <label> <input id="maleGender" type="radio" name="gender" value="male">Male</label>
+        <label> <input id="femaleGender" type="radio" name="gender" value="female">Female</label>
+        <a id="refrenceLink" onclick="genderCheck()"><input type="submit" value="submit"></a>
 
-        <label id="idLabelGender"></label>
-        <br>
-        <input type="radio" id="maleGender" name="gender" value="male" />Male<input type="radio" id="femaleGender" name="gender" value="Female" />Female
-        <a id="b" href="#" onclick="next9();"><input type="button" value="submit"></a>
     </div>
 
-    <div id="selectVehType" style="display:none">
-
-        <label id="idLabelVehType"></label>
-        <br>
+    <!-- division for selection of vehicle type  -->
+    <div id="selectVehicleType" style="display:none">
+        <h3> <span id="vehicleTypeLabel"></span></h3>
         <select name="vehicle" id="vehicleType">
 			<option value="">--select value--</option>
 			<option value="Cycle">Cycle</option>
 			<option value="MotorCycle">Motor Cycle</option>
 			<option value="FourWheeler">Four Wheeler</option>
 		</select>
-        <a id="c" href="#" onclick="next6();"><input type="button" value="submit"></a>
+        <a id="refrenceLink" onclick="vehicleTypeCheck()"><input type="submit" value="submit"></a>
     </div>
 
+    <!-- division containing pass price of cycle  -->
     <div id="selectCyclePassType" style="display:none">
-
-        <label id="idLabelCycleType"></label>
+        <h3> <label id="idLabelCycleType"></label></h3>
         <br>
         <select name="pass" id="Cycle">
 			<option value="">--select value--</option>
@@ -47,11 +51,12 @@
 			<option value="100">100 Monthly</option>
 			<option value="500">500 Yearly</option>
 		</select>
-        <a id="d" href="#" onclick="next8();"><input type="button" value="submit"></a>
+        <a id="refrenceLink" onclick="passCheck()"><input type="submit" value="submit"></a>
     </div>
-    <div id="selectTwoPassType" style="display:none">
 
-        <label id="idLabelTwoType"></label>
+    <!-- division containing pass price of Motor Cycle  -->
+    <div id="selectTwoPassType" style="display:none">
+        <h3><label id="idLabelTwoType"></label></h3>
         <br>
         <select name="pass" id="TwoWheeler">
 			<option value="">--select value--</option>
@@ -59,11 +64,12 @@
 			<option value="200">200 Monthly</option>
 			<option value="1000">1000 Yearly</option>
 		</select>
-        <a id="d" href="#" onclick="next8();"><input type="button" value="submit"></a>
+        <a id="refrenceLink" onclick="passCheck()"><input type="submit" value="submit"></a>
     </div>
-    <div id="selectFourPassType" style="display:none">
 
-        <label id="idLabelFourType"></label>
+    <!-- division containing pass price of Car  -->
+    <div id="selectFourPassType" style="display:none">
+        <h3><label id="idLabelFourType"></label></h3>
         <br>
         <select name="pass" id="FourWheeler">
 			<option value="">--select value--</option>
@@ -71,9 +77,12 @@
 			<option value="500">500 Monthly</option>
 			<option value="3500">3500 Yearly</option>
 		</select>
-        <a id="d" href="#" onclick="next8();"><input type="button" value="submit"></a>
+        <a id="refrenceLink" onclick="passCheck()"><input type="submit" value="submit"></a>
+
     </div>
 
+    <!-- span for showing final message  -->
+    <h2><span id="finalMessage"></span></h2>
 </body>
 
 </html>
